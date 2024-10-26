@@ -64,7 +64,7 @@ class EMASkipPump(IStrategy):
     def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
 
         dataframe.loc[
-            (dataframe['rsi'] < 31)
+            (dataframe['rsi'] < 32)
             (dataframe['volume'] < (dataframe['volume'].rolling(window=30).mean().shift(1) * 20)) &
             (dataframe['close'] < dataframe['ema_{}'.format(self.EMA_SHORT_TERM)]) &
             (dataframe['close'] < dataframe['ema_{}'.format(self.EMA_MEDIUM_TERM)]) &
